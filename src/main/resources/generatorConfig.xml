@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD
-    MyBatis Generator Configuration 1.0//EN"
-        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+    MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
     <classPathEntry
             location="/Users/yuta/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/8.0.23/14d64ac509adccaff444513c12646d93e4ed8be8/mysql-connector-java-8.0.23.jar"/>
@@ -10,11 +9,12 @@
         <commentGenerator>
             <property name="suppressDate" value="true"/>
         </commentGenerator>
+        <!-- passwordを適宜更新 -->
         <jdbcConnection
                 driverClass="com.mysql.jdbc.Driver"
                 connectionURL="jdbc:mysql://127.0.0.1:3306/book_manager"
                 userId="root"
-                password="mysql">
+                password="hogehoge">
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
         <javaTypeResolver>

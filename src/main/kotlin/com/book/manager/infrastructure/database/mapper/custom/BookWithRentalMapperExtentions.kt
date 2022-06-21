@@ -10,8 +10,7 @@ import com.book.manager.infrastructure.database.mapper.RentalDynamicSqlSupport.R
 import com.book.manager.infrastructure.database.mapper.RentalDynamicSqlSupport.Rental.returnDeadline
 import com.book.manager.infrastructure.database.mapper.RentalDynamicSqlSupport.Rental.userId
 import com.book.manager.infrastructure.database.record.custom.BookWithRentalRecord
-import org.mybatis.dynamic.sql.SqlBuilder.equalTo
-import org.mybatis.dynamic.sql.SqlBuilder.select
+import org.mybatis.dynamic.sql.SqlBuilder.*
 import org.mybatis.dynamic.sql.util.kotlin.mybatis3.from
 
 private val columnList = listOf(
@@ -31,4 +30,14 @@ fun BookWithRentalMapper.select(): List<BookWithRentalRecord> {
         }
     }
     return selectMany(selectStatement)
+}
+
+fun BookWithRentalMapper.selectByPrimaryKey(id_: Long): BookWithRentalRecord? {
+    val selectStatement = select(columnList).from(Book, "b") {
+        leftJoin(Rental, "r") {
+            on(Book.id, equalTo(Rental.bookId))
+        }
+        where(id, isEqualTo(id_))
+    }
+    return selectOne(selectStatement)
 }

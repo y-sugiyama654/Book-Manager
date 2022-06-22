@@ -8,6 +8,7 @@ import com.book.manager.infrastructure.database.mapper.BookMapper
 import com.book.manager.infrastructure.database.mapper.custom.BookWithRentalMapper
 import com.book.manager.infrastructure.database.mapper.custom.select
 import com.book.manager.infrastructure.database.mapper.custom.selectByPrimaryKey
+import com.book.manager.infrastructure.database.mapper.deleteByPrimaryKey
 import com.book.manager.infrastructure.database.mapper.insert
 import com.book.manager.infrastructure.database.mapper.updateByPrimaryKeySelective
 import com.book.manager.infrastructure.database.record.BookRecord
@@ -58,5 +59,9 @@ class BookRepositoryImpl(
 
     override fun update(id: Long, title: String?, author: String?, releaseDate: LocalDate?) {
         bookMapper.updateByPrimaryKeySelective(BookRecord(id, title, author, releaseDate))
+    }
+
+    override fun delete(id: Long) {
+        bookMapper.deleteByPrimaryKey(id)
     }
 }

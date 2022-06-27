@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("book")
-@CrossOrigin
 class BookController(
     private val bookService: BookService
 ) {

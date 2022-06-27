@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("admin/book")
-@CrossOrigin
 class AdminBookController(
     private val adminBookService: AdminBookService
 ) {
